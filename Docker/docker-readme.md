@@ -16,5 +16,4 @@ Containers allow developer to package up an application with all parts it needs 
 
  ### Docker Flow
 
- ![Image of dockerflow]
- (https://github.com/ravikiransharvirala/cookbooks-and-guides/blob/master/Docker/images/Docker_Flow-Image_to_container.png?raw=true)
+ ![Image of dockerflow](https://github.com/ravikiransharvirala/cookbooks-and-guides/blob/master/Docker/images/Docker_Flow-Image_to_container.png?raw=true)
