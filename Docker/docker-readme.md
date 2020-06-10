@@ -9,11 +9,9 @@ Containers allow developer to package up an application with all parts it needs 
 ### Containers vs Virtual Machines
  - Containers are abstraction at the app layer that packages code and dependencies together.
  - Virtual Machines(VM) are an abstraction of physical hardware turining one server into many servers.
-
- <img src="https://www.docker.com/sites/default/files/d8/2018-11/container-vm-whatcontainer_2.png">
  
  *source: docker.com*
 
  ### Docker Flow
 
- ![Image of dockerflow](https://github.com/ravikiransharvirala/cookbooks-and-guides/blob/master/Docker/images/Docker_Flow-Image_to_container.png?raw=true)
+**Dockerfile** -> **Images** -> **Container**
