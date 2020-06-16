@@ -74,19 +74,21 @@ $ docker build -t <Give your new image a name> .
 $ docker run -ti <image name>:<image tage>
 ```
 
+
 **Options**
-`-ti` - for initiating the interactive terminal upon running the images
-`--rm` - deletes the container when the process finishes running
-`-d` - detach from the container (mainly used if you want to keep the container running in the background)
-`-name` - to name the container
-`-p` - publish a container port (Example: -p <port from local:container port>)
-`-v` - to mount a volume to the container (Example: -v <folder path of the host: shared folder from the container > )
+- `-ti` - for initiating the interactive terminal upon running the images
+- `--rm` - deletes the container when the process finishes running
+- `-d` - detach from the container (mainly used if you want to keep the container running in the background)
+- `-name` - to name the container
+- `-p` - publish a container port (Example: -p <port from local:container port>)
+- `-v` - to mount a volume to the container (Example: -v <folder path of the host: shared folder from the container > )
 
 **Resource Constraints**
-`--memory` - To specify the memory limits for a container
-`--cpu-shares` - To specify the cpu shares relative to other containers
-`--cpu-quota` - To limit in general
-`--volumes-from` - To share the volume from different container
+- `--memory` - To specify the memory limits for a container
+- `--cpu-shares` - To specify the cpu shares relative to other containers
+- `--cpu-quota` - To limit in general
+- `--volumes-from` - To share the volume from different container
+
 
 - To check active containers (running containers)
 
