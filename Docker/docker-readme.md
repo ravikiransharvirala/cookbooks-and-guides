@@ -29,18 +29,22 @@ Containers allow developer to package up an application with all parts it needs 
 - Private networks to connect between containers
 
 ### Images
-
  - You can download existing images from hub.docker.com or
  - You can create your own image from docker file
  - Always tag images in this format **Organization/image-name**
 
 ### Volumes
-
 - You can create volumes in containers
 - Volumes are virtual discs to store and share data 
 - There are two main varieties of volumes
     - **Persistent** - will be available on the host even when the container goes awsy
     - **Ephemeral** - will be gone once the conatiner goes away
+- They are not part of the image
+
+### Dockerfile
+ - It is a small program to create an image
+ - 
+
 
 ### Docker key commands and tags
 
@@ -57,22 +61,32 @@ $ docker images
 REPOSITORY         TAG         IMAGE ID       CREATED        SIZE
 ```
 
+- To build a image from docker file. Run the below command from the directory that contains docker file
+
+```bash
+$ docker build -t <Give your new image a name> . 
+```
+*Note: There is a dot at the end of the command* 
+
 - To convert the image to running container
 
 ```bash
 $ docker run -ti <image name>:<image tage>
 ```
+
 **Options**
 `-ti` - for initiating the interactive terminal upon running the images
 `--rm` - deletes the container when the process finishes running
 `-d` - detach from the container (mainly used if you want to keep the container running in the background)
 `-name` - to name the container
-`-p` - publish a container port example( docker run -p <port from local:container port>)
+`-p` - publish a container port (Example: -p <port from local:container port>)
+`-v` - to mount a volume to the container (Example: -v <folder path of the host: shared folder from the container > )
 
 **Resource Constraints**
 `--memory` - To specify the memory limits for a container
 `--cpu-shares` - To specify the cpu shares relative to other containers
 `--cpu-quota` - To limit in general
+`--volumes-from` - To share the volume from different container
 
 - To check active containers (running containers)
 
