@@ -43,8 +43,17 @@ Containers allow developer to package up an application with all parts it needs 
 
 ### Dockerfile
  - It is a small program to create an image
- - 
+ - Each line takes the image from the previous line and make another image
+ - The previous image is unchanged
 
+ ### Dockerfile Instruction syntax
+ - `**FROM**` to start with an base image
+ - `**RUN**` to run a command in the container
+ - `**CMD**` to run a command when this image is started
+ - `**LABEL**` to add metadata to an image
+ - `**EXPOSE**` to actually publish the port when running the container
+ - `**ENV**` to set env variables while running the container
+ - `**ADD**` to copy new files, directories and remove file url's from `<src>` and adds them to the filesystem of image at path `<dest>`
 
 ### Docker key commands and tags
 
