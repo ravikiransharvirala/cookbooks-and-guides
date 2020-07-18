@@ -37,3 +37,52 @@ DAG's are special subset of graphs in which the edges between nodes have a speci
 
 ![alt text](https://github.com/ravikiransharvirala/cookbooks-and-guides/blob/master/Airflow/images/how-airflow-works.png?raw=true)
                                 (Source: <a href="https://www.udacity.com">Udacity</a>)
+
+### Order of Operations for an Airflow DAG
+- The Airflow Scheduler starts DAGs based on time or external triggers.
+- Once a DAG is started, the Scheduler looks at the steps within the DAG and determines which steps can run by looking at their dependencies.
+- The Scheduler places runnable steps in the queue.
+- Workers pick up those tasks and run them.
+- Once the worker has finished running the step, the final status of the task is recorded and additional tasks are placed by the scheduler until all tasks are complete.
+- Once all tasks have been completed, the DAG is complete.
+
+### Building a Data Pipeline in Airflow
+- Step 1: Create the DAG by importing the class DAG from Airflow module and instantiating it.
+    ```python
+        from airflow import DAG
+    ```
+- Step 2: Give it a name, a description, a start date, and an interval.
+    ```python
+        data_dag = DAG('get_data',
+            description='Analyze given data',
+            start_date=datetime(2019, 2, 4),
+            schedule_interval='@daily')
+    ```
+- Step 3: Creating operators to perform tasks.
+    ```python
+        from airflow import DAG
+        from airflow.operators.python_operator import PythonOperator
+        
+        def hello_world():
+        print(“Hello World”)
+        
+        data_dag = DAG(...)
+        
+        task = PythonOperator(task_id=’hello_world’,
+            python_callable=hello_world,
+            dag=data_dag)
+    ```
+
+### Schedules
+Schedules are optional, and may be defined with cron strings or Airflow Presets. Airflow provides following presets:
+
+- `@once` - Run a DAG once and then never again
+- `@hourly` - Run the DAG every hour
+- `@daily` - Run the DAG every day
+- `@weekly` - Run the DAG every week
+- `@monthly` - Run the DAG every month
+- `@yearly` - Run the DAG every year
+- `None` - Only run the DAG when the user initiates it
+
+- **Start Date** - If your start date is in the past, Airflow will run your DAG as many times as there are schedule intervals between that start date and the current date.
+- **End Date** - Unless you specify an optional end date, Airflow will continue to run your DAGs until you disable or delete the DAG.
