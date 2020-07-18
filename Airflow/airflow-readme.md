@@ -35,4 +35,5 @@ DAG's are special subset of graphs in which the edges between nodes have a speci
 
 ### How Airflow works
 
-![alt text]()
+![alt text](https://github.com/ravikiransharvirala/cookbooks-and-guides/blob/master/Airflow/images/how-airflow-works.png?raw=true)
+                                (Source: <a href="https://www.udacity.com">Udacity</a>)
